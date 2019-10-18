@@ -1,0 +1,4 @@
+pyttsx3==2.71
+feedparser==5.2.1
+html2text==2019.9.26
+keyboard==0.13.4
