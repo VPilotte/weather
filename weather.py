@@ -16,11 +16,6 @@ def handler(signum, frame):
 	engine.stop()
 	sys.exit()
 
-def read(text):
-	engine.say(text)
-	engine.runAndWait()
-
-
 while app_running:
 
 	signal.signal(signal.SIGTSTP, handler)
@@ -31,11 +26,8 @@ while app_running:
 		engine.setProperty('voice', 'com.apple.speech.synthesis.voice.amelie')
 		engine.setProperty('rate', engine.getProperty('rate') - 30)
 
-		#t = Thread(target=read(feed.entries[x].summary))
-		#t.start()
-
 		engine.say(feed.entries[x].title)
 		engine.say(html2text.html2text(feed.entries[x].summary))
-		engine.run()
+		engine.runAndWait()
 
 	app_running = False
