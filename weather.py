@@ -31,11 +31,11 @@ while app_running:
 		engine.setProperty('voice', 'com.apple.speech.synthesis.voice.amelie')
 		engine.setProperty('rate', engine.getProperty('rate') - 30)
 
-		t = Thread(target=read(feed.entries[x].summary))
-		t.start()
+		#t = Thread(target=read(feed.entries[x].summary))
+		#t.start()
 
-		#engine.say(feed.entries[x].title)
-		#engine.say(html2text.html2text(feed.entries[x].summary))
-		#engine.run()
+		engine.say(feed.entries[x].title)
+		engine.say(html2text.html2text(feed.entries[x].summary))
+		engine.run()
 
 	app_running = False
